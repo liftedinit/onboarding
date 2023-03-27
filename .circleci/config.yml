@@ -20,5 +20,5 @@ workflows:
         - generate_pdf:
             pre-steps:
               - run:
-                  name: update apk and install git-lfs
-                  command: apk update && apk add git-lfs
+                  name: update apk and install dependencies
+                  command: apk update && apk add git-lfs openssh
