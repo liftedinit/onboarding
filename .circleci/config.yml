@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: pulling assets
+          command: git lfs pull
+      - run:
           name: generate onboarding documentation - pdf
           command: asciidoctor-pdf *.adoc
       - store_artifacts:
@@ -14,7 +17,14 @@ jobs:
 
 workflows:
   generate_pdf:
-#    when:
-#      equal: [ webhook, << pipeline.trigger_source >> ]
-    jobs:
-      - generate_pdf
+    #    when:
+    #      equal: [ webhook, << pipeline.trigger_source >> ]
+      jobs:
+        - generate_pdf:
+            pre-steps:
+              - run:
+                  name: update apk
+                  command: apk update
+              - run:
+                  name: install git-lfs
+                  command: apk add git-lfs
