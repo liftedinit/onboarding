@@ -7,9 +7,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: pulling assets
-          command: git lfs pull
-      - run:
           name: generate onboarding documentation - pdf
           command: asciidoctor-pdf *.adoc
       - store_artifacts:
@@ -23,8 +20,5 @@ workflows:
         - generate_pdf:
             pre-steps:
               - run:
-                  name: update apk
-                  command: apk update
-              - run:
-                  name: install git-lfs
-                  command: apk add git-lfs
+                  name: update apk and install git-lfs
+                  command: apk update && apk add git-lfs
