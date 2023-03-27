@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  generate_pdf:
+    docker:
+      - image: asciidoctor/docker-asciidoctor:1.41
+    steps:
+      - checkout
+      - run:
+          name: generate onboarding documentation - pdf
+          command: asciidoctor-pdf *.adoc
+      - store_artifacts:
+          path: "*.pdf"
+
+workflows:
+  generate_pdf:
+    when:
+      equal: [ webhook, << pipeline.trigger_source >> ]
+    jobs:
+      - generate_pdf
