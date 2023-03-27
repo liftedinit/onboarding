@@ -4,13 +4,19 @@ jobs:
   generate_pdf:
     docker:
       - image: asciidoctor/docker-asciidoctor:1.41
+    resource_class: small
     steps:
       - checkout
       - run:
           name: generate onboarding documentation - pdf
           command: asciidoctor-pdf *.adoc
+      - run:
+          name: moving artifacts
+          command: |
+            mkdir -p artifacts
+            mv *.pdf artifacts
       - store_artifacts:
-          path: "*.pdf"
+          path: artifacts
 
 workflows:
   generate_pdf:
