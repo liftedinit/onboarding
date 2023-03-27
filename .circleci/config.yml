@@ -14,7 +14,7 @@ jobs:
 
 workflows:
   generate_pdf:
-    when:
-      equal: [ webhook, << pipeline.trigger_source >> ]
+#    when:
+#      equal: [ webhook, << pipeline.trigger_source >> ]
     jobs:
       - generate_pdf
