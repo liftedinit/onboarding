@@ -1,0 +1,112 @@
+= Generating a new token
+The Lifted Initiative <info@liftedinit.org>
+v1.0
+:toc:
+:homepage: https://www.liftedinit.org
+:ss_date: 27-3-2023_
+:alberto_url: https://alpha-testnet.liftedinit.tech/
+:gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
+:many-rs_url: https://github.com/liftedinit/many-rs
+:kvstore_url: https://alpha-testnet.liftedinit.tech/api/kvstore
+
+This document provides instructions on how to use the Manifest Key-Value store (kvstore). The key-value store allows one to
+
+* Write arbitrary data to the blockchain
+* Read arbitrary data from the blockchain
+* Update existing data
+* Mark data as immutable
+* Disable data
+* Transfer ownership of a key
+
+NOTE:: The CLI applications are unable to execute commands, i.e., write operations, using MANY identities created using Social Login or Email.
+
+== Requirements
+
+* A MANY identity
+* Any Linux distrubution, e.g., Ubuntu 22.04, with
+** GLIBC >= 2.35
+** OpenSSL 3.x
+* {many-rs_url}[many-rs] >= 0.1.0
+
+== Instructions
+
+This section provides instructions on how to perform various operations on the kvstore.
+
+=== Write arbitrary data
+To write arbitrary data, run
+```shell
+$ kvstore --pem [IDENTITY] [SERVER] put [KEY] [VALUE]
+```
+where
+
+SERVER:: {kvstore_url}
+IDENTITY:: Your MANY identity PEM file
+KEY:: A string identifier where to store the string value
+VALUE:: The string value to store
+
+=== Read arbitrary data
+
+To read arbitrary data, run
+```shell
+$ kvstore [SERVER] get [KEY]
+```
+where
+
+SERVER:: {kvstore_url}
+KEY:: A string identifier from where to fetch the string value
+
+=== Update existing data
+To update existing data, run
+```shell
+$ kvstore --pem [IDENTITY] [SERVER] put [KEY] [VALUE]
+```
+where
+
+IDENTITY:: Your MANY identity PEM file
+SERVER:: {kvstore_url}
+KEY:: A string identifier where to update the string value
+VALUE:: The new string value to store
+
+NOTE: A value can only be updated by the owner of the key.
+
+=== Mark data as immutable
+To mark existing data as immutable, run
+```shell
+$ kvstore --pem [IDENTITY] [SERVER] transfer [KEY] maiyg
+```
+where
+
+IDENTITY:: Your MANY identity PEM file
+SERVER:: {kvstore_url}
+KEY:: The string identifier of the location to mark immutable
+
+The `maiyg` identity is a special identity not owned by anyone.
+
+WARNING: This operation is irreversible.
+
+=== Disable data
+To disable existing data, run
+```shell
+$ kvstore --pem [IDENTITY] [SERVER] disable [KEY]
+```
+where
+
+IDENTITY:: Your MANY identity PEM file
+SERVER:: {kvstore_url}
+KEY:: The string identifier of the location to disable
+
+NOTE: The data is disabled rather than being deleted. An error will be displayed if one tries to read the value of a disabled key.
+
+NOTE: Only the key owner can re-use a disabled key by writing new data to its location.
+
+=== Transfer ownership
+To transfer the ownership of an existing key to another MANY identity, run
+```shell
+$ kvstore --pem [IDENTITY] [SERVER] transfer [KEY] [DEST]
+```
+where
+
+IDENTITY:: Your MANY identity PEM file
+SERVER:: {kvstore_url}
+KEY:: The string identifier of the location to transfer to the new owner
+DEST:: The MANY identity of the new owner

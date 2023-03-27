@@ -1,0 +1,34 @@
+= Generating a new token
+The Lifted Initiative <info@liftedinit.org>
+v1.0
+:toc:
+:homepage: https://www.liftedinit.org
+:ss_date: 27-3-2023_
+:gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
+:alberto_url: https://alpha-testnet.liftedinit.tech/
+
+This document provides instructions on generating a new token on the Manifest network using the {gwen_url}[Gwen] web application.
+
+== Requirements
+
+* The token authority identity, provided by The Lifted Initiative
+* Recent browser
+** Firefox >= 78
+** Safari >= 12
+** Edge >= 79
+** Chrome >= 64
+** Opera >= 51
+
+== Instructions
+
+To generate a new token,
+
+. Log into {gwen_url}[Gwen] using the token authority identity
+. Click on Services
+. Click on Ledger
+. Click on the `Create Token` button
+. Enter the token `Name`, `Symbol` and `Amount` to create
+. (NOT IMPL YET) Set the destination address to the MANY identity associated with your credentials
+. Click on the `Create` button
+. Log into {alberto_url}[Alberto] using your credentials
+. Verify the balance of the newly created token

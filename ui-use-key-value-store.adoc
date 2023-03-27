@@ -1,0 +1,58 @@
+= Use the Key-Value store
+The Lifted Initiative <info@liftedinit.org>
+v1.0
+:toc:
+:homepage: https://www.liftedinit.org
+:ss_date: 27-3-2023_
+:gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
+
+This document provides instructions on how to use the Manifest Key-Value store. The key-value store allows one to
+
+* Write arbitrary data to the blockchain
+* Read arbitrary data from the blockchain
+* Update existing data
+* Mark data as immutable
+* Delete (disable) data
+
+The Manifest Key-Value store feature can be accessed using the {gwen_url}[Gwen] web application.
+
+== Requirements
+
+* A MANY identity
+* Recent browser
+** Firefox >= 78
+** Safari >= 12
+** Edge >= 79
+** Chrome >= 64
+** Opera >= 51
+
+== Instructions
+
+. Log into {gwen_url}[Gwen] using your MANY identity
+// TODO: The KVSTORE network should be prepopulated
+. Click on the `MANIFEST` network menu
+// TODO Adjust the name
+. Select `MANIFEST KVSTORE`
+. Click on Services
+. Click on Data
+
+=== Write arbitrary data
+
+To write new data in the kvstore,
+
+// TODO
+. Click on
+
+=== Read arbitrary data
+
+The kvstore data is displayed from the {gwen_url}/#/settings/data[Gwen Data] page
+
+=== Update existing data
+
+=== Mark data as immutable
+
+=== Delete data
+
+NOTE:: The data is disabled rather than being deleted; its value still exists but cannot be accessed.
+
+WARNING:: The deleted key cannot be reused.

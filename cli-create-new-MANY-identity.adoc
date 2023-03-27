@@ -1,0 +1,38 @@
+= Create a new MANY identity
+The Lifted Initiative <info@liftedinit.org>
+v1.0
+:toc:
+:homepage: https://www.liftedinit.org
+:ss_date: 27-3-2023_
+:alberto_url: https://alpha-testnet.liftedinit.tech/
+:gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
+:many-rs_url: https://github.com/liftedinit/many-rs
+
+This document provides instructions on creating a MANY identity, an anonymous unique identifier linked to your credentials on the Manifest network.
+
+WARNING: MANY identities created using the method described in this document are considered less secure than the methods used by the {alberto_url}[Alberto] and {gwen_url}[Gwen] web applications.
+
+== Requirements
+
+* Any Linux distrubution, e.g., Ubuntu 22.04, with
+** GLIBC >= 2.35
+** OpenSSL 3.x
+* {many-rs_url}[many-rs] >= 0.1.0
+
+== Instructions
+
+. Create a new `ed25519` key-pair by running
++
+```shell
+$ openssl genpkey -algorithm Ed25519 -out my_identity.pem
+```
++
+IMPORTANT: The `pem` file is required to use the MANY identity. The MANY identity linked to this file is lost forever if the file is lost. Anyone in possession of the file can act on behalf of the identity.
+. Extract your MANY identity by running
++
+```shell
+$ many id my_identity.pem
+maen45w7kspbxr5qxjfvhn..........3fcoh4ejop4miseyq4
+```
++
+The output string is the MANY identity.
