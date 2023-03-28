@@ -9,7 +9,9 @@ jobs:
       - checkout
       - run:
           name: generate onboarding documentation - pdf
-          command: asciidoctor-pdf *.adoc
+          command: |
+              asciidoctor *.adoc
+              find . -name '*.html' -exec prince {} \;
       - run:
           name: moving artifacts
           command: |
@@ -28,3 +30,11 @@ workflows:
               - run:
                   name: update apk and install dependencies
                   command: apk update && apk add git-lfs openssh
+              - run:
+                  name: install prince
+                  command: |
+                    wget -c https://www.princexml.com/download/prince-15.1-alpine3.17-x86_64.tar.gz -O - | tar zx
+                    cd prince-15.1-alpine3.17-x86_64
+                    ./install.sh
+                    cd ..
+                    rm -rf prince-15.1-alpine3.17-x86_64
