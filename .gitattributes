@@ -4,3 +4,11 @@ assets/27-3-2023_alberto_add_account_menu.png filter=lfs diff=lfs merge=lfs -tex
 assets/27-3-2023_gwen_add_account_dialog.png filter=lfs diff=lfs merge=lfs -text
 assets/27-3-2023_gwen_add_account_home.png filter=lfs diff=lfs merge=lfs -text
 assets/27-3-2023_gwen_add_account_menu.png filter=lfs diff=lfs merge=lfs -text
+assets/28-3-2023_token_creation_gwen_home.png filter=lfs diff=lfs merge=lfs -text
+assets/28-3-2023_token_creation_gwen_import_account.png filter=lfs diff=lfs merge=lfs -text
+assets/28-3-2023_token_creation_gwen_import_pem.png filter=lfs diff=lfs merge=lfs -text
+assets/28-3-2023_token_creation_gwen_import_token_authority.png filter=lfs diff=lfs merge=lfs -text
+assets/28-3-2023_token_creation_gwen_new_token_created.png filter=lfs diff=lfs merge=lfs -text
+assets/28-3-2023_token_creation_gwen_add_account_menu.png filter=lfs diff=lfs merge=lfs -text
+assets/28-3-2023_token_creation_gwen_create_token_filled.png filter=lfs diff=lfs merge=lfs -text
+assets/28-3-2023_token_creation_gwen_create_token.png filter=lfs diff=lfs merge=lfs -text

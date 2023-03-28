@@ -3,7 +3,7 @@ The Lifted Initiative <info@liftedinit.org>
 v1.0
 :toc:
 :homepage: https://www.liftedinit.org
-:ss_date: 27-3-2023_
+:ss_date: 28-3-2023_
 :gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
 :alberto_url: https://alpha-testnet.liftedinit.tech/
 
@@ -23,12 +23,28 @@ This document provides instructions on generating a new token on the Manifest ne
 
 To generate a new token,
 
-. Log into {gwen_url}[Gwen] using the token authority identity
+. Open {gwen_url}[Gwen]
++
+image::assets/{ss_date}token_creation_gwen_home.png[Gwen Home]
+. Click on the `Anonymous` account menu and
++
+image::assets/{ss_date}token_creation_gwen_add_account_menu.png[Gwen Home]
+. Click on the `Add Account` button and click on the `Import` tab
++
+image::assets/{ss_date}token_creation_gwen_import_account.png[Gwen Home]
+. Click on `PEM File`, add the Token Authority account and click on `Save`
++
+image::assets/{ss_date}token_creation_gwen_import_token_authority.png[Gwen Home]
 . Click on Services
 . Click on Ledger
 . Click on the `Create Token` button
++
+image::assets/{ss_date}token_creation_gwen_create_token.png[Gwen Home]
 . Enter the token `Name`, `Symbol` and `Amount` to create
-. (NOT IMPL YET) Set the destination address to the MANY identity associated with your credentials
-. Click on the `Create` button
-. Log into {alberto_url}[Alberto] using your credentials
-. Verify the balance of the newly created token
++
+image::assets/{ss_date}token_creation_gwen_create_token_filled.png[Gwen Home]
+. Click on the `Create` button. Your new token is now created.
++
+image::assets/{ss_date}token_creation_gwen_new_token_created.png[Gwen Home]
+
+NOTE: The new token amount will be vested to the destination address which is currently set to the Token Authority address
