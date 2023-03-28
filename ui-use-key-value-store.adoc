@@ -5,6 +5,7 @@ v1.0
 :homepage: https://www.liftedinit.org
 :ss_date: 27-3-2023_
 :gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
+:kvstore_url: https://alpha-testnet.liftedinit.tech/api/kvstore
 
 This document provides instructions on how to use the Manifest Key-Value store. The key-value store allows one to
 
@@ -29,19 +30,27 @@ The Manifest Key-Value store feature can be accessed using the {gwen_url}[Gwen] 
 == Instructions
 
 . Log into {gwen_url}[Gwen] using your MANY identity
-// TODO: The KVSTORE network should be prepopulated
++
+NOTE: Only Social login, PEM file and seed phrase are currently supported by the kvstore
 . Click on the `MANIFEST` network menu
-// TODO Adjust the name
-. Select `MANIFEST KVSTORE`
-. Click on Services
-. Click on Data
+. Click on `Add Network`
+. Set the following values
+Name:: `MANIFEST KVSTORE`
+URL:: {kvstore_url}
+. Click on `Save`
+. Verify that `MANIFEST KVSTORE` is selected in the network menu
 
 === Write arbitrary data
 
 To write new data in the kvstore,
 
-// TODO
-. Click on
+. Click on `Services`
+. Click on `Data`
+. Click on `Create New Key`
+. Fill the `Key` and `Value` fields
++
+NOTE: The maximum number of bytes for the `Key` and `Value` fields is `248` and `64000` respectively.
+. Click on `Save`
 
 === Read arbitrary data
 
@@ -49,10 +58,47 @@ The kvstore data is displayed from the {gwen_url}/#/settings/data[Gwen Data] pag
 
 === Update existing data
 
+To update existing data,
+
+. Click on the pass:[
+    <svg stroke="black" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" height="1em" width="1em">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+    </svg>
+]
+icon
+. Fill the `Key` and `Value` fields
+. Click on `Save`
+
 === Mark data as immutable
+
+To mark data as immutable,
+
+. Click on the pass:[
+    <svg fill="black" stroke-width="0" viewBox="0 0 448 512" focusable="false" height="1em" width="1em">
+        <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
+    </svg>
+]
+icon
+. Click the `Mark Immutable` button
+
+WARNING: This operation cannot be undone.
+
 
 === Delete data
 
+To delete existing data,
+
+. Click on the pass:[
+<svg fill="black" stroke-width="0" viewBox="0 0 24 24" focusable="false" class="chakra-icon css-6ey7w3" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <path fill="none" d="M17.004 20L17.003 8h-1-8-1v12H17.004zM13.003 10h2v8h-2V10zM9.003 10h2v8h-2V10zM9.003 4H15.003V6H9.003z"></path>
+    <path d="M5.003,20c0,1.103,0.897,2,2,2h10c1.103,0,2-0.897,2-2V8h2V6h-3h-1V4c0-1.103-0.897-2-2-2h-6c-1.103,0-2,0.897-2,2v2h-1h-3 v2h2V20z M9.003,4h6v2h-6V4z M8.003,8h8h1l0.001,12H7.003V8H8.003z"></path>
+    <path d="M9.003 10H11.003V18H9.003zM13.003 10H15.003V18H13.003z"></path>
+</svg>
+]
+icon
+. Click on the `Delete Key` button
+
 NOTE:: The data is disabled rather than being deleted; its value still exists but cannot be accessed.
 
-WARNING:: The deleted key cannot be reused.
+WARNING:: The deleted key cannot be reused by anyone other than the original owner.

@@ -44,6 +44,9 @@ IDENTITY:: Your MANY identity PEM file
 KEY:: A string identifier where to store the string value
 VALUE:: The string value to store
 
+NOTE: The maximum number of bytes for the `KEY` and `VALUE` fields is `248` and `64000` respectively.
+
+
 === Read arbitrary data
 
 To read arbitrary data, run
