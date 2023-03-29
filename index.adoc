@@ -1,6 +1,6 @@
 = Index
 The Lifted Initiative <info@liftedinit.org>
-v1.0
+v1.0.0
 :sectnums:
 :toc:
 :toclevels: 2
