@@ -29,7 +29,9 @@ TOKEN_AUTHORITY:: the token authority PEM file provided by the Lifted Initiative
 SERVER:: {gwen_url}api
 NAME:: Name of the new token, e.g., "My token"
 SYMBOL:: Symbol ticker, e.g, MYBTC
-DECIMALS:: Precision decimals. This is used to show how many tokens can be divided.
+DECIMALS:: Precision decimals.
+This is used to show how many tokens can be divided.
+E.g., the value for Bitcoin is `9`.
 DEST*:: MANY identities where the new tokens should be allocated
 AMOUNT*:: Amount of new tokens to allocate to the identity
 

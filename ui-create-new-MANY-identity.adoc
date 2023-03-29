@@ -13,7 +13,7 @@ The Lifted Initialive currently offers the following web applications
 Alberto:: a web crypto wallet application for any ledger supporting the MANY protocol.
 Gwen:: a dashboard application to manage clusters supporting the MANY protocol.
 
-This document provide instructions for each application.
+This section provides instructions for each application.
 
 == Requirements
 
