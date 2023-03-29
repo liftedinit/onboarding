@@ -1,0 +1,39 @@
+= Generating a new token
+:ss_date: 27-3-2023_
+:alberto_url: https://alpha-testnet.liftedinit.tech/
+:gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
+:many-rs_url: https://github.com/liftedinit/many-rs
+
+This section provides instructions on generating a new token on the Manifest network using the {many-rs_url}[many-rs] CLI.
+
+== Requirements
+
+* The token authority identity, provided by The Lifted Initiative
+* Any Linux distrubution, e.g., Ubuntu 22.04, with
+** GLIBC >= 2.35
+** OpenSSL 3.x
+* {many-rs_url}[many-rs] >= 0.1.0
+
+== Instructions
+
+. Generate a new token using the Token Authority
++
+```shell
+$ ledger --pem [TOKEN_AUTHORITY] [SERVER] token create [NAME] [SYMBOL] [DECIMALS] \
+    --initial-distribution '{"[DEST1]": [AMOUNT1], ..., "[DESTN]": [AMOUNTN]}'
+```
++
+where
++
+TOKEN_AUTHORITY:: the token authority PEM file provided by the Lifted Initiative
+SERVER:: {gwen_url}api
+NAME:: Name of the new token, e.g., "My token"
+SYMBOL:: Symbol ticker, e.g, MYBTC
+DECIMALS:: Precision decimals.
+This is used to show how many tokens can be divided.
+E.g., the value for Bitcoin is `9`.
+DEST*:: MANY identities where the new tokens should be allocated
+AMOUNT*:: Amount of new tokens to allocate to the identity
+
++
+The new token information will be displayed if the execution succeeded.

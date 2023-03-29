@@ -1,0 +1,30 @@
+= Index
+The Lifted Initiative <info@liftedinit.org>
+v1.0
+:sectnums:
+:toc:
+:toclevels: 2
+:doctype: book
+:homepage: https://www.liftedinit.org
+
+= UI
+
+:leveloffset: 1
+
+include::ui-create-new-MANY-identity.adoc[]
+
+include::ui-generate-a-new-token.adoc[]
+
+include::ui-use-key-value-store.adoc[]
+
+:leveloffset: 0
+
+= CLI
+
+:leveloffset: 1
+
+include::cli-create-new-MANY-identity.adoc[]
+
+include::cli-generate-a-new-token.adoc[]
+
+include::cli-use-key-value-store.adoc[]

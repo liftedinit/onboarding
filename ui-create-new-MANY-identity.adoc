@@ -1,0 +1,61 @@
+= Create a new MANY identity
+:ss_date: 27-3-2023_
+:alberto_url: https://alpha-testnet.liftedinit.tech/
+:gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
+
+This section provides instructions on creating a MANY identity, an anonymous unique identifier linked to your credentials on the Manifest network.
+A MANY identity can be used across the multiple applications linked to the Manifest network.
+
+IMPORTANT: MANY identities created using a Hardware Authenticator currently cannot be reused across multiple applications.
+
+The Lifted Initialive currently offers the following web applications
+
+Alberto:: a web crypto wallet application for any ledger supporting the MANY protocol.
+Gwen:: a dashboard application to manage clusters supporting the MANY protocol.
+
+This section provides instructions for each application.
+
+== Requirements
+
+* Social media account, or;
+* Email, or;
+* Hardware Authenticator.
+
+* Recent browser
+** Firefox >= 78
+** Safari >= 12
+** Edge >= 79
+** Chrome >= 64
+** Opera >= 51
+
+== Instructions
+
+=== Alberto
+
+To create a new MANY identity,
+
+. Open {alberto_url}[Alberto]
++
+image::assets/{ss_date}alberto_add_account_home.png[Alberto Home]
+. Click on the `Anonymous` account menu
++
+image::assets/{ss_date}alberto_add_account_menu.png[Alberto Add Account Menu]
+. Click the `Add Account` button
++
+image::assets/{ss_date}alberto_add_account_dialog.png[Alberto Add Account Dialog]
+. Select the type of account to create and follow the on-screen instructions
+
+=== Gwen
+
+To create a new MANY identity,
+
+. Open {gwen_url}[Gwen]
++
+image::assets/{ss_date}gwen_add_account_home.png[Gwen Home]
+. Click on the `Anonymous` account menu
++
+image::assets/{ss_date}gwen_add_account_menu.png[Gwen Add Account Menu]
+. Click on the `Add Account` button
++
+image::assets/{ss_date}gwen_add_account_dialog.png[Gwen Add Account Dialog]
+. Select the type of account to create and follow the on-screen instructions

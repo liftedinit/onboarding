@@ -1,0 +1,130 @@
+version: 2.1
+
+jobs:
+  generate_pdf:
+    docker:
+      - image: asciidoctor/docker-asciidoctor:1.41
+    resource_class: small
+    steps:
+      - checkout
+      - generate_pdf
+      - store_artifacts:
+          path: artifacts
+
+  # Push a (pre-)release build to GitHub
+  publish:
+    parameters:
+      pre-release:
+        type: boolean
+        default: false
+    docker:
+      - image: cibuilds/github:0.10
+    resource_class: medium
+    steps:
+      - attach_workspace:
+          at: ~/project/artifacts
+      - when:
+          condition:
+            not: << parameters.pre-release >>
+          steps:
+            - run:
+                name: publish pre-release
+                command: ghr -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} ${CIRCLE_TAG} ~/project/artifacts
+      - when:
+          condition: << parameters.pre-release >>
+          steps:
+            - run:
+                name: publish pre-release
+                command: ghr -prerelease -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} ${CIRCLE_TAG} ~/project/artifacts
+
+  # Create a release build
+  create:
+    docker:
+      - image: asciidoctor/docker-asciidoctor:1.41
+    resource_class: small
+    steps:
+      - checkout
+      - generate_pdf
+      - persist_to_workspace:
+          root: artifacts
+          paths:
+            - "*.pdf"
+
+commands:
+  generate_pdf:
+    description: generate the documentation pdf
+    steps:
+      - run:
+          name: generate onboarding documentation - pdf
+          command: |
+            VERSION=$(head -3 index.adoc | tail +3)
+            asciidoctor index.adoc
+            prince index.html -o index_${VERSION}_${CIRCLE_SHA1}.pdf
+      - run:
+          name: moving artifacts
+          command: |
+            mkdir -p artifacts
+            mv *.pdf artifacts
+
+workflows:
+  generate_pdf:
+      when:
+        equal: [ webhook, << pipeline.trigger_source >> ]
+      jobs:
+        - generate_pdf:
+            pre-steps:
+              - run:
+                  name: update apk and install dependencies
+                  command: apk update && apk add git-lfs openssh
+              - run:
+                  name: install prince
+                  command: |
+                    wget -c https://www.princexml.com/download/prince-15.1-alpine3.17-x86_64.tar.gz -O - | tar zx
+                    cd prince-15.1-alpine3.17-x86_64
+                    ./install.sh
+                    cd ..
+                    rm -rf prince-15.1-alpine3.17-x86_64
+
+  release:
+      when:
+        not:
+          equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
+      jobs:
+        - create:
+            filters:
+              branches:
+                ignore: /.*/
+              tags:
+                only:
+                  - /^\d+\.\d+\.\d+$/                 # e.g., 0.1.1, 1.0.0
+                  - /^\d+\.\d+\.\d+-(alpha|beta)$/    # e.g., 0.1.1-alpha, 2.3.1-beta
+                  - /^\d+\.\d+\.\d+-.*-rc.*$/         # e.g., 0.1.1-alpha-rc1, 1.3.4-beta-rc4
+                  - /^\d+\.\d+\.\d+-pre.*$/           # e.g., 0.1.1-prealpha-3, 1.5.6-prealpha-8
+        - publish:
+            name: publish
+            pre-release: false
+            context:
+              - GITHUB_CREDS
+            requires:
+              - create
+            filters:
+              branches:
+                ignore: /.*/
+              tags:
+                only:
+                  - /^\d+\.\d+\.\d+$/                 # e.g., 0.1.1, 1.0.0
+                  - /^\d+\.\d+\.\d+-(alpha|beta)$/    # e.g., 0.1.1-alpha, 2.3.1-beta
+        - publish:
+            name: publish-pre-release
+            pre-release: true
+            context:
+              - GITHUB_CREDS
+            requires:
+              - create
+            filters:
+              branches:
+                ignore: /.*/
+              tags:
+                only:
+                  - /^\d+\.\d+\.\d+-.*-rc.*$/         # e.g., 0.1.1-alpha-rc1, 1.3.4-beta-rc4
+                  - /^\d+\.\d+\.\d+-pre.*$/           # e.g., 0.1.1-prealpha-3, 1.5.6-prealpha-8

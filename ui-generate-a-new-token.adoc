@@ -1,0 +1,46 @@
+= Generating a new token
+:ss_date: 28-3-2023_
+:gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
+:alberto_url: https://alpha-testnet.liftedinit.tech/
+
+This section provides instructions on generating a new token on the Manifest network using the {gwen_url}[Gwen] web application.
+
+== Requirements
+
+* The token authority identity, provided by The Lifted Initiative
+* Recent browser
+** Firefox >= 78
+** Safari >= 12
+** Edge >= 79
+** Chrome >= 64
+** Opera >= 51
+
+== Instructions
+
+To generate a new token,
+
+. Open {gwen_url}[Gwen]
++
+image::assets/{ss_date}token_creation_gwen_home.png[Gwen Home]
+. Click on the `Anonymous` account menu and
++
+image::assets/{ss_date}token_creation_gwen_add_account_menu.png[Gwen Home]
+. Click on the `Add Account` button and click on the `Import` tab
++
+image::assets/{ss_date}token_creation_gwen_import_account.png[Gwen Home]
+. Click on `PEM File`, add the Token Authority account and click on `Save`
++
+image::assets/{ss_date}token_creation_gwen_import_token_authority.png[Gwen Home]
+. Click on Services
+. Click on Ledger
+. Click on the `Create Token` button
++
+image::assets/{ss_date}token_creation_gwen_create_token.png[Gwen Home]
+. Enter the token `Name`, `Symbol` and `Amount` to create
++
+image::assets/{ss_date}token_creation_gwen_create_token_filled.png[Gwen Home]
+. Click on the `Create` button. Your new token is now created.
++
+image::assets/{ss_date}token_creation_gwen_new_token_created.png[Gwen Home]
+
+NOTE: The new token amount will be vested to the destination address which is currently set to the Token Authority address
