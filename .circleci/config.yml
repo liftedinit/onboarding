@@ -12,7 +12,7 @@ jobs:
           command: |
               VERSION=$(head -3 index.adoc | tail +3)
               asciidoctor index.adoc
-              prince index.html -o index_${VERSION}.pdf
+              prince index.html -o index_${VERSION}_${CIRCLE_SHA1}.pdf
       - run:
           name: moving artifacts
           command: |

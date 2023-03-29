@@ -1,5 +1,5 @@
 = Use the Key-Value store
-:ss_date: 27-3-2023_
+:ss_date: 29-3-2023_
 :gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
 :kvstore_url: https://alpha-testnet.liftedinit.tech/api/kvstore
 
@@ -25,12 +25,19 @@ The Manifest Key-Value store feature can be accessed using the {gwen_url}[Gwen] 
 
 == Instructions
 
-. Log into {gwen_url}[Gwen] using your MANY identity
+. Open {gwen_url}[Gwen]
++
+image::assets/{ss_date}add_kvstore_network_gwen_home.png[Gwen Home]
+. Login using your MANY identity
 +
 NOTE: Only Social login, PEM file and seed phrase are currently supported by the kvstore
 . Click on the `MANIFEST` network menu
++
+image::assets/{ss_date}add_kvstore_network_gwen_network_menu.png[Add Network Menu]
 . Click on `Add Network`
 . Set the following values
++
+image::assets/{ss_date}add_kvstore_network_gwen_add_network_filled.png[Create Network]
 Name:: `MANIFEST KVSTORE`
 URL:: {kvstore_url}
 . Click on `Save`
@@ -40,13 +47,24 @@ URL:: {kvstore_url}
 
 To write new data in the kvstore,
 
+. Open {gwen_url}[Gwen]
++
+image::assets/{ss_date}kvstore_write_gwen_home.png[Gwen Home]
 . Click on `Services`
++
+image::assets/{ss_date}kvstore_write_gwen_service.png[Gwen Services]
 . Click on `Data`
++
+image::assets/{ss_date}kvstore_write_gwen_data.png[Gwen Data]
 . Click on `Create New Key`
 . Fill the `Key` and `Value` fields
 +
+image::assets/{ss_date}kvstore_write_gwen_new_kv_filled.png[Create New Key]
++
 NOTE: The maximum number of bytes for the `Key` and `Value` fields is `248` and `64000` respectively.
 . Click on `Save`
++
+image::assets/{ss_date}kvstore_write_gwen_new_kv_final.png[New Key Created]
 
 === Read arbitrary data
 
@@ -76,8 +94,12 @@ To mark data as immutable,
     </svg>
 ]
 icon
++
+image::assets/{ss_date}kvstore_immutable_gwen_dialog.png[Mark Immutable Dialog]
 . Click the `Mark Immutable` button
-
++
+image::assets/{ss_date}kvstore_immutable_gwen_final.png[Data Marked Immutable]
++
 WARNING: This operation cannot be undone.
 
 
@@ -93,8 +115,12 @@ To delete existing data,
 </svg>
 ]
 icon
++
+image::assets/{ss_date}kvstore_delete_gwen_dialog.png[Delete Key Dialog]
 . Click on the `Delete Key` button
-
++
+image::assets/{ss_date}kvstore_delete_gwen_final.png[Deleted Key]
++
 NOTE:: The data is disabled rather than being deleted; its value still exists but cannot be accessed.
-
++
 WARNING:: The deleted key cannot be reused by anyone other than the original owner.
