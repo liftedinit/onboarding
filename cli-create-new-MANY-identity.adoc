@@ -23,7 +23,9 @@ WARNING: MANY identities created using the method described in this document are
 $ openssl genpkey -algorithm Ed25519 -out my_identity.pem
 ```
 +
-IMPORTANT: The `pem` file is required to use the MANY identity. The MANY identity linked to this file is lost forever if the file is lost. Anyone in possession of the file can act on behalf of the identity.
+IMPORTANT: The `pem` file is required to use the MANY identity.
+The MANY identity linked to this file is lost forever if the file is lost.
+Anyone in possession of the file can act on behalf of the identity.
 . Extract your MANY identity by running
 +
 ```shell
