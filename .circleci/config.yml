@@ -65,6 +65,21 @@ commands:
           command: |
             mkdir -p artifacts
             mv *.pdf artifacts
+  install_deps:
+    description: install build dependencies
+    steps:
+      - run:
+          name: update apk and install dependencies
+          command: apk update && apk add git-lfs openssh
+      - run:
+          name: install prince
+          command: |
+            wget -c https://www.princexml.com/download/prince-15.1-alpine3.17-x86_64.tar.gz -O - | tar zx
+            cd prince-15.1-alpine3.17-x86_64
+            ./install.sh
+            cd ..
+            rm -rf prince-15.1-alpine3.17-x86_64
+      
 
 workflows:
   generate_pdf:
@@ -73,17 +88,7 @@ workflows:
       jobs:
         - generate_pdf:
             pre-steps:
-              - run:
-                  name: update apk and install dependencies
-                  command: apk update && apk add git-lfs openssh
-              - run:
-                  name: install prince
-                  command: |
-                    wget -c https://www.princexml.com/download/prince-15.1-alpine3.17-x86_64.tar.gz -O - | tar zx
-                    cd prince-15.1-alpine3.17-x86_64
-                    ./install.sh
-                    cd ..
-                    rm -rf prince-15.1-alpine3.17-x86_64
+              - install_deps
 
   release:
       when:
@@ -91,6 +96,8 @@ workflows:
           equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
       jobs:
         - create:
+            pre-steps:
+              - install_deps
             filters:
               branches:
                 ignore: /.*/
