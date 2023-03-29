@@ -1,14 +1,10 @@
 = Create a new MANY identity
-The Lifted Initiative <info@liftedinit.org>
-v1.0
-:toc:
-:homepage: https://www.liftedinit.org
 :ss_date: 27-3-2023_
 :alberto_url: https://alpha-testnet.liftedinit.tech/
 :gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
 :many-rs_url: https://github.com/liftedinit/many-rs
 
-This document provides instructions on creating a MANY identity, an anonymous unique identifier linked to your credentials on the Manifest network.
+This section provides instructions on creating a MANY identity, an anonymous unique identifier linked to your credentials on the Manifest network.
 
 WARNING: MANY identities created using the method described in this document are considered less secure than the methods used by the {alberto_url}[Alberto] and {gwen_url}[Gwen] web applications.
 

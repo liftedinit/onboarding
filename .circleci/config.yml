@@ -10,8 +10,9 @@ jobs:
       - run:
           name: generate onboarding documentation - pdf
           command: |
-              asciidoctor *.adoc
-              find . -name '*.html' -exec prince {} \;
+              VERSION=$(head -3 index.adoc | tail +3)
+              asciidoctor index.adoc
+              prince index.html -o index_${VERSION}.pdf
       - run:
           name: moving artifacts
           command: |

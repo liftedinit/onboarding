@@ -1,13 +1,9 @@
 = Generating a new token
-The Lifted Initiative <info@liftedinit.org>
-v1.0
-:toc:
-:homepage: https://www.liftedinit.org
 :ss_date: 28-3-2023_
 :gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
 :alberto_url: https://alpha-testnet.liftedinit.tech/
 
-This document provides instructions on generating a new token on the Manifest network using the {gwen_url}[Gwen] web application.
+This section provides instructions on generating a new token on the Manifest network using the {gwen_url}[Gwen] web application.
 
 == Requirements
 

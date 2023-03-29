@@ -1,13 +1,9 @@
 = Create a new MANY identity
-The Lifted Initiative <info@liftedinit.org>
-v1.0
-:toc:
-:homepage: https://www.liftedinit.org
 :ss_date: 27-3-2023_
 :alberto_url: https://alpha-testnet.liftedinit.tech/
 :gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
 
-This document provides instructions on creating a MANY identity, an anonymous unique identifier linked to your credentials on the Manifest network.
+This section provides instructions on creating a MANY identity, an anonymous unique identifier linked to your credentials on the Manifest network.
 A MANY identity can be used across the multiple applications linked to the Manifest network.
 
 IMPORTANT: MANY identities created using a Hardware Authenticator currently cannot be reused across multiple applications.

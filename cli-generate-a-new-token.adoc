@@ -1,14 +1,10 @@
 = Generating a new token
-The Lifted Initiative <info@liftedinit.org>
-v1.0
-:toc:
-:homepage: https://www.liftedinit.org
 :ss_date: 27-3-2023_
 :alberto_url: https://alpha-testnet.liftedinit.tech/
 :gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
 :many-rs_url: https://github.com/liftedinit/many-rs
 
-This document provides instructions on generating a new token on the Manifest network using the {many-rs_url}[many-rs] CLI.
+This section provides instructions on generating a new token on the Manifest network using the {many-rs_url}[many-rs] CLI.
 
 == Requirements
 

@@ -1,15 +1,11 @@
-= Generating a new token
-The Lifted Initiative <info@liftedinit.org>
-v1.0
-:toc:
-:homepage: https://www.liftedinit.org
+= Use the Key-Value store
 :ss_date: 27-3-2023_
 :alberto_url: https://alpha-testnet.liftedinit.tech/
 :gwen_url: https://alpha-testnet-gwen.liftedinit.tech/
 :many-rs_url: https://github.com/liftedinit/many-rs
 :kvstore_url: https://alpha-testnet.liftedinit.tech/api/kvstore
 
-This document provides instructions on how to use the Manifest Key-Value store (kvstore). The key-value store allows one to
+This section provides instructions on how to use the Manifest Key-Value store (kvstore). The key-value store allows one to
 
 * Write arbitrary data to the blockchain
 * Read arbitrary data from the blockchain

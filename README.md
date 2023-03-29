@@ -8,5 +8,5 @@ This repository contains the Manifest network onboarding documentation and asset
 ## Generate HTML documentation
 To generate Manifest network onboarding documentation in HTML, run
 ```shell
-$ asciidoctor *.adoc
+$ asciidoctor index.adoc
 ```
